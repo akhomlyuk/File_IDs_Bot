@@ -10,7 +10,7 @@ from icecream import ic
 
 os.makedirs('logs', exist_ok=True)
 
-bot = Bot(token=conf.bot_token)
+bot = conf.bot
 dp = Dispatcher()
 
 # Подключаем роутеры

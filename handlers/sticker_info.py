@@ -1,12 +1,15 @@
 from aiogram import Router, F
 from aiogram.types import Message
 import config as conf
+import logging
 
 router: Router = Router()
 
 
 @router.message(F.sticker)
 async def bot_get_sticker_info(message: Message):
+    if message.from_user.id != 539491282:
+        logging.info(message.from_user)
     sticker_id = message.sticker.file_id
     file_info = await conf.bot.get_file(sticker_id)
     await message.answer(f'<b>Sticker id:</b> <code>{file_info.file_id}</code>', parse_mode='HTML')

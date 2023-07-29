@@ -29,6 +29,11 @@ async def cmd_start(message: types.Message):
     await message.answer(desc.show_info, parse_mode='HTML')
 
 
+@dp.message(Command("help"))
+async def cmd_help(message: types.Message):
+    await message.answer(desc.show_info, parse_mode='HTML')
+
+
 @dp.errors()
 async def errors_handler(update: types.Update, exception: Exception):
     logging.error(f'Ошибка при обработке запроса {update}: {exception}')

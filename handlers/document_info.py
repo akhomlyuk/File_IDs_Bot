@@ -3,6 +3,7 @@ from aiogram.types import Message
 import config as conf
 import logging
 from functions import parse_file_to_json
+from icecream import ic
 
 router: Router = Router()
 
@@ -21,4 +22,5 @@ async def bot_get_document_info(message: Message):
         await conf.bot.send_document(message.chat.id, json_data)
     except Exception as e:
         logging.warning(e)
+        ic(e)
         await message.answer(f'{e}')

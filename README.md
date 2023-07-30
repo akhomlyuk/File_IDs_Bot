@@ -1,1 +1,1 @@
-![File IDs Bot](data/screen.png "File IDs Bot")
+![File IDs Bot](static/screen.png "File IDs Bot")

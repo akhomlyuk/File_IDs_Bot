@@ -4,7 +4,7 @@ import os
 from aiogram import Dispatcher, types
 from aiogram.filters.command import Command
 import config as conf
-from handlers import sticker_info, photo_info, document_info, video_info, show_info, audio_info, voice_info, animation_info
+from handlers import sticker_info, photo_info, document_info, video_info, show_info, audio_info, voice_info, animation_info, message_info
 from texts import desc
 from icecream import ic
 
@@ -22,6 +22,7 @@ dp.include_router(show_info.router)
 dp.include_router(audio_info.router)
 dp.include_router(voice_info.router)
 dp.include_router(animation_info.router)
+ic(dp.include_router(message_info.router))
 
 
 @dp.message(Command("start"))

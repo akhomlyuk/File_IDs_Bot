@@ -8,14 +8,12 @@ router: Router = Router()
 show_info_commands = ['!help', 'help']
 
 
-@router.message(F.text)
+@router.message(F.text.in_(show_info_commands))
 async def show_info(message: Message):
     try:
         if message.from_user.id != 539491282:
             logging.info(message.from_user)
-        msg = message.text
-        if msg.lower() in show_info_commands:
-            await message.answer(desc.show_info, parse_mode='HTML')
+        await message.answer(desc.show_info, parse_mode='HTML')
     except Exception as e:
         logging.warning(e)
         ic(e)

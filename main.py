@@ -22,12 +22,13 @@ dp.include_router(show_info.router)
 dp.include_router(audio_info.router)
 dp.include_router(voice_info.router)
 dp.include_router(animation_info.router)
-ic(dp.include_router(message_info.router))
+dp.include_router(message_info.router)
 
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
     await message.answer(desc.show_info, parse_mode='HTML')
+    logging.warning(f'New: {message.from_user.id} - {message.from_user.first_name} : {message.from_user.last_name} - {message.from_user.username}')
 
 
 @dp.message(Command("help"))
@@ -45,6 +46,7 @@ async def main():
         await dp.start_polling(bot)
     except (KeyboardInterrupt, SystemExit):
         logging.info("Bot stopped")
+        ic('Bot stopped')
     finally:
         await bot.session.close()
 

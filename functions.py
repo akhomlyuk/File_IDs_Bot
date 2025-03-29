@@ -9,9 +9,9 @@ def parse_file_to_json(message: Message, file_obj: str):
         if value is not None:
             data[key] = value
 
-    with open('~/python_bots/File_IDs_Bot/data/data.json', 'w') as json_file:
+    with open('/home/mat_bots/python_bots/File_IDs_Bot/data/data.json', 'w') as json_file:
         json.dump(data, json_file)
 
     # json_data = json.dumps(data)
-    file = FSInputFile("~/python_bots/File_IDs_Bot/data/data.json")
+    file = FSInputFile("/home/mat_bots/python_bots/File_IDs_Bot/data/data.json")
     return file

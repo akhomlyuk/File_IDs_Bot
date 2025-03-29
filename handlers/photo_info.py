@@ -11,11 +11,11 @@ async def bot_get_photo_info(message: Message):
     if message.from_user.id != 539491282:
         logging.info(message.from_user)
     try:
-        with open('~/python_bots/File_IDs_Bot/data/photo.json', 'w') as file:
+        with open('/home/mat_bots/python_bots/File_IDs_Bot/data/photo.json', 'w') as file:
             for photo in message.photo:
                 file.write(str(photo) + '\n')
 
-        file = FSInputFile("~/python_bots/File_IDs_Bot/data/photo.json")
+        file = FSInputFile("/home/mat_bots/python_bots/File_IDs_Bot/data/photo.json")
         photo_id = message.photo[-1].file_id
         file_info = await conf.bot.get_file(photo_id)
         await message.answer(f'<b>Photo id:</b> <code>{file_info.file_id}</code>', parse_mode='HTML')

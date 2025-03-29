@@ -3,7 +3,6 @@ from aiogram.types import Message
 import config as conf
 import logging
 from functions import parse_file_to_json
-from icecream import ic
 
 router: Router = Router()
 

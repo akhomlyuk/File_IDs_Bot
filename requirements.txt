@@ -1,0 +1,2 @@
+aiogram~=3.19.0
+icecream~=2.1.4
